@@ -20,26 +20,22 @@ rappdirs::user_cache_dir("tigris")
 
 ## Create string import for years of interest ------------------------------
 
-## File
-pums_2000 <- "ipums_puma_2000.shp"
-pums_2010 <- "ipums_puma_2010_tl20.shp"
 
 ## Path
-pums_2000_path <- here("recs_pums_master", "climate_regions", "raw_data", "ipums_puma_2000", pums_2000)
-pums_2010_path <- here("recs_pums_master", "climate_regions", "raw_data", "puma_2010_shapefiles", pums_2010)
+pums_2000_path <- here("raw_data", "ipums_puma_2000", "ipums_puma_2000.shp")
+pums_2010_path <- here("raw_data", "puma_2010_shapefiles", "ipums_puma_2010_tl20.shp")
 
 
 
 
 ## Import data -------------------------------------------------------------
-clim_zones <- read_csv(here("recs_pums_master", "climate_regions", "raw_data", 
-                            "climate_zones.csv")) %>% clean_names()
+clim_zones <- read_csv(here("raw_data", "climate_zones.csv")) %>% 
+              clean_names()
 
 ## Pick vintage depending on needs 
 puma <- read_sf(pums_2010_path)
 
-puma_crosswalk <- read_excel(here("recs_pums_master", "climate_regions", 
-                                  "raw_data",  "PUMA2000_PUMA2010_crosswalk.xlsx"))
+puma_crosswalk <- read_excel(here("raw_data",  "PUMA2000_PUMA2010_crosswalk.xlsx"))
 
 
 
@@ -142,7 +138,7 @@ puma_sf <- puma %>%
 ## Visuals non-contiguous US ------------------------------
 
 counties <- counties %>% dplyr::rename(county_fips = COUNTYFP,
-                                                 state_fips = STATEFP) 
+                                       state_fips = STATEFP) 
 
 clim_zone_sf <- counties %>%  
                 left_join(clim_narrowed, 
