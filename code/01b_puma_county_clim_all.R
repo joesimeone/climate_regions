@@ -1,3 +1,5 @@
+
+## Libraries ---------------------------------------------------------------
 library(tidycensus)
 library(tigris)
 library(sf)
@@ -33,6 +35,7 @@ pums_2010_path <- here("recs_pums_master", "climate_regions", "raw_data", "puma_
 clim_zones <- read_csv(here("recs_pums_master", "climate_regions", "raw_data", 
                             "climate_zones.csv")) %>% clean_names()
 
+## Pick vintage depending on needs 
 puma <- read_sf(pums_2010_path)
 
 puma_crosswalk <- read_excel(here("recs_pums_master", "climate_regions", 
