@@ -1,9 +1,0 @@
-2 counties were excluded from initial downloaded csv (don't know why
-
-
-Shannon (113) in North Dakota (46)
-Wade Hampton (270) in Alaska (02)
-
-
-I added them to the CSV. Not sure why they weren't from the initial GitHub source. Don't think it has to do w/ vintage given
-everything else seems to line up? Check that more though. 
